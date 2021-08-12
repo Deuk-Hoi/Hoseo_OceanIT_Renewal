@@ -6,7 +6,7 @@
 
 > Back-End : Node.js, Docker, MySQL
 
-> APP : Flutter
+> APP : Android(Kotlin), IOS(Swift)
 
 ## 제작 계획
 <p>
@@ -38,6 +38,7 @@
 | <b>20161472 김득회</b> |  -  |  -  |   O   |          O          |
 | <b>20161477 김영재</b> |  O  |  O  |   -   |          O          |
 | <b>20161504 이규환</b> |  -  |  -  |   -   |          O          |
+| <b>20161467 고준혁</b> |  -  |  -  |   O   |          -          |
 <br>
 
 #### 제작 기간 : `2020.12.20 ~
