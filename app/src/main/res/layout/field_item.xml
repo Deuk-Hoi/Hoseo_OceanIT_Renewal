@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
+    android:background="@drawable/research_item_card"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/fieldTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fieldContent"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/customBlue"
+        android:singleLine="true"
+        android:ems="15"
+        tools:text="분산형 수중관측 제어망 개발"/>
+
+    <TextView
+        android:id="@+id/fieldContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fieldTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/researchPeriod"
+        android:textColor="@color/black"
+        android:maxLines="2"
+        android:ems="22"
+        tools:text="수중환경에서 장시간․실시간 관측 및 제어를 위한 기지국 기반의 수중 관측․제어망 핵심기술 및 체계 구축연구" />
+
+    <TextView
+        android:id="@+id/researchPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/fieldContent"
+        android:textColor="@color/researchCardPeriod"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/researchState"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        tools:text="2015-05-01 ~ 2021-12-31"/>
+
+    <TextView
+        android:id="@+id/researchState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/researchPeriod"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        tools:text="연구진행중"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

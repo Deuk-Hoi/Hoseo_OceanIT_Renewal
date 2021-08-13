@@ -6,7 +6,15 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="red">#FF0000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#182033</color>
     <color name="nameOne">#1976d3</color>
+    <color name="backColor">#F8F8F8</color>
+    <color name="loginColor">#745FFF</color>
+    <color name="logoutColor">#FF2D2D</color>
+    <color name="customBlue">#2395f3</color>
+    <color name="spinnerBack">#E92BFF</color>
+    <color name="researchCardPeriod">#9c28b1</color>
+    <color name="customPink">#b968c7</color>
 </resources>

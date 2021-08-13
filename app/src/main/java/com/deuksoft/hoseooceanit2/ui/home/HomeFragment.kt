@@ -1,6 +1,7 @@
 package com.deuksoft.hoseooceanit2.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,34 +9,33 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.deuksoft.hoseooceanit2.MainActivity
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private var _HomeBinding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private val HomeBinding get() = _HomeBinding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        _HomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return HomeBinding.root
+    }
 
-        return root
+    override fun onResume() {
+        super.onResume()
+
+        (activity as MainActivity).mainAppbar()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        Log.e("sdfds", "dsfds")
+        _HomeBinding = null
     }
 }

@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.deuksoft.hoseooceanit2.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_member"
+        android:name="com.deuksoft.hoseooceanit2.ui.member.MemberFragment"
+        android:label="@string/menu_member"
+        tools:layout="@layout/fragment_member" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.deuksoft.hoseooceanit2.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_result"
+        android:name="com.deuksoft.hoseooceanit2.ui.result.ResultFragment"
+        android:label="@string/menu_result"
+        tools:layout="@layout/fragment_result" />
+
+    <fragment
+        android:id="@+id/nav_field"
+        android:name="com.deuksoft.hoseooceanit2.ui.field.FieldFragment"
+        android:label="@string/menu_field" />
 </navigation>
