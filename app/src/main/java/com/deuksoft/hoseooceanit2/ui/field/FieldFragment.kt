@@ -1,9 +1,11 @@
 package com.deuksoft.hoseooceanit2.ui.field
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
@@ -12,7 +14,7 @@ import com.deuksoft.hoseooceanit2.MainActivity
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentFieldBinding
 
-class FieldFragment: Fragment() {
+class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var fieldViewModel: FieldViewModel
     private var _fieldBinding: FragmentFieldBinding? = null
     private val fieldBinding get() = _fieldBinding!!
@@ -23,6 +25,7 @@ class FieldFragment: Fragment() {
         _fieldBinding = FragmentFieldBinding.inflate(inflater, container, false)
         spinner = requireActivity().findViewById(R.id.contentList)!!
         settingSpinner()
+        spinner.onItemSelectedListener = this
         return fieldBinding.root
     }
 
@@ -43,5 +46,13 @@ class FieldFragment: Fragment() {
         var adapter = ArrayAdapter.createFromResource(requireContext(), R.array.fieldList,R.layout.color_spinner_layout)
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout)
         spinner.adapter = adapter
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        Log.e("sdfdsf", spinner.getItemAtPosition(position).toString())
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+
     }
 }
