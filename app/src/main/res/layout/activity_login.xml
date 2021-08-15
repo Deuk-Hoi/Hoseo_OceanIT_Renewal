@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.deuksoft.LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/loginGuideLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/loginGuideLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/welcomeNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTxt"
+        tools:text="해양 IT 융합기술연구소에 오신것을 환영합니다.\n보다 많은 서비스를 이용하시려면 로그인 후 이용해 주세요" />
+
+    <EditText
+        android:id="@+id/userId"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_input_back"
+        android:gravity="center"
+        android:hint="아이디를 입력해주세요"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/loginGuideLine1"
+        app:layout_constraintRight_toRightOf="@id/loginGuideLine2"
+        app:layout_constraintTop_toBottomOf="@id/welcomeNotice" />
+
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_input_back"
+        android:gravity="center"
+        android:hint="비밀번호를 입력해주세요"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/loginGuideLine1"
+        app:layout_constraintRight_toRightOf="@id/loginGuideLine2"
+        app:layout_constraintTop_toBottomOf="@id/userId" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginBtn"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_btn_back"
+        android:text="login"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="@id/loginGuideLine1"
+        app:layout_constraintRight_toRightOf="@id/loginGuideLine2"
+        app:layout_constraintTop_toBottomOf="@id/userPassword" />
+
+    <TextView
+        android:id="@+id/findPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="@id/loginGuideLine1"
+        app:layout_constraintRight_toLeftOf="@id/seperate"
+        app:layout_constraintTop_toBottomOf="@id/loginBtn"
+        app:layout_constraintBottom_toBottomOf="@id/seperate"/>
+
+    <TextView
+        android:id="@+id/seperate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="|"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintLeft_toRightOf="@id/findPassword"
+        app:layout_constraintRight_toLeftOf="@id/register"
+        app:layout_constraintTop_toTopOf="@id/findPassword"/>
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/seperate"
+        app:layout_constraintRight_toRightOf="@id/loginGuideLine2"
+        app:layout_constraintTop_toTopOf="@id/findPassword"
+        app:layout_constraintBottom_toBottomOf="@id/findPassword"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

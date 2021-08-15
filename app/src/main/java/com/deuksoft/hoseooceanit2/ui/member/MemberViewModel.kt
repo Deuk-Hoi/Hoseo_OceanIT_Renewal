@@ -14,4 +14,8 @@ class MemberViewModel(application: Application) : AndroidViewModel(application){
     fun getMember():LiveData<List<MemberDTO>>{
         return memberRepository.getMember()
     }
+
+    fun getMessage():LiveData<String>{
+        return memberRepository.message
+    }
 }

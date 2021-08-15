@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +29,7 @@ class MemberFragment : Fragment() {
 
         memberBinding.apply {
             memberViewModel = memberViewModel
-            memberBinding.lifecycleOwner = this@MemberFragment
+            lifecycleOwner = this@MemberFragment
         }
 
 
@@ -42,6 +43,10 @@ class MemberFragment : Fragment() {
             memberBinding.memberRecycler.layoutManager = linearManager
             memberBinding.memberRecycler.setHasFixedSize(true)
             memberAdapter.notifyDataSetChanged()
+        }
+
+        memberViewModel.getMessage().observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
 
         return memberBinding.root

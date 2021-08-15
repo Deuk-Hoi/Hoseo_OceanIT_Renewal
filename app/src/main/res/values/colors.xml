@@ -17,4 +17,8 @@
     <color name="spinnerBack">#E92BFF</color>
     <color name="researchCardPeriod">#9c28b1</color>
     <color name="customPink">#b968c7</color>
+
+    <color name="resultPatent">#ff9900</color>
+    <color name="resultThesis">#f44336</color>
+    <color name="resultAnnounced">#7a15a2</color>
 </resources>
