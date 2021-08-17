@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/research_card">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/fieldDetailTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="수중 광역 이동통신 시스템 기술 개발"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <TextView
+                    android:id="@+id/department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/fieldDetailTitle"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/departmentTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/businessName"
+                    android:text="부서 : "/>
+
+                <TextView
+                    android:id="@+id/departmentTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/department"
+                    app:layout_constraintLeft_toRightOf="@id/department"
+                    app:layout_constraintBottom_toBottomOf="@id/department"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="해양수산부"/>
+
+                <TextView
+                    android:id="@+id/businessName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/department"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/businessNameTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:text="사업명 : "/>
+
+                <TextView
+                    android:id="@+id/businessNameTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/businessName"
+                    app:layout_constraintLeft_toRightOf="@id/businessName"
+                    app:layout_constraintBottom_toBottomOf="@id/businessName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="연구장비개발 및 인프라 구축사업"/>
+
+                <TextView
+                    android:id="@+id/supportName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/businessName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/supportNameTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:text="지원기관 : "/>
+
+                <TextView
+                    android:id="@+id/supportNameTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/supportName"
+                    app:layout_constraintLeft_toRightOf="@id/supportName"
+                    app:layout_constraintBottom_toBottomOf="@id/supportName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="해양 수산과학기술진흥원"/>
+
+                <TextView
+                    android:id="@+id/researchPeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/supportName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/researchPeriodTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:text="연구기간 : "/>
+
+                <TextView
+                    android:id="@+id/researchPeriodTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/researchPeriod"
+                    app:layout_constraintLeft_toRightOf="@id/researchPeriod"
+                    app:layout_constraintBottom_toBottomOf="@id/researchPeriod"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="2012-08-01 ~ 2019-01-31"/>
+
+                <TextView
+                    android:id="@+id/participateName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/researchPeriod"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/participateNameTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:text="연구기간 : "/>
+
+                <TextView
+                    android:id="@+id/participateNameTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/participateName"
+                    app:layout_constraintLeft_toRightOf="@id/participateName"
+                    app:layout_constraintBottom_toBottomOf="@id/participateName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="호서대, 강릉원주대"/>
+                <TextView
+                    android:id="@+id/manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/participateName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/managerNameTxt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:text="연구기간 : "/>
+                <TextView
+                    android:id="@+id/managerNameTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/manager"
+                    app:layout_constraintLeft_toRightOf="@id/manager"
+                    app:layout_constraintBottom_toBottomOf="@id/manager"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    tools:text="고학림"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

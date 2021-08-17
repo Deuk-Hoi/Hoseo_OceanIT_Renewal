@@ -55,13 +55,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcomeTxt"
-        tools:text="해양 IT 융합기술연구소에 오신것을 환영합니다.\n보다 많은 서비스를 이용하시려면 로그인 후 이용해 주세요" />
+        android:text="해양 IT 융합기술연구소에 오신것을 환영합니다.\n보다 많은 서비스를 이용하시려면 로그인 후 이용해 주세요" />
 
     <EditText
         android:id="@+id/userId"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/login_input_back"
         android:gravity="center"
         android:hint="아이디를 입력해주세요"

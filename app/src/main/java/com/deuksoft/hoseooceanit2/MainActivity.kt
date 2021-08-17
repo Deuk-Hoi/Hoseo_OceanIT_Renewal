@@ -1,8 +1,11 @@
 package com.deuksoft.hoseooceanit2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.deuksoft.LoginActivity
 import com.deuksoft.hoseooceanit2.databinding.ActivityMainBinding
 import com.deuksoft.hoseooceanit2.ui.field.FieldFragment
 import com.deuksoft.hoseooceanit2.ui.home.HomeFragment
@@ -23,7 +27,7 @@ import com.deuksoft.hoseooceanit2.ui.result.ResultFragment
 * @작성일 : 2021-08-13
 * */
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
     lateinit var drawerLayout: DrawerLayout
@@ -41,6 +45,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mainAppbar()
         navView.setupWithNavController(navController)
         navView.setNavigationItemSelectedListener(this)
+        findViewById<TextView>(R.id.mainLoginBtn).setOnClickListener(this)
     }
 
 
@@ -111,9 +116,47 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
     }
 
+    fun changeFragment(flag: Int){
+        var fragment = Fragment()
+        when(flag){
+            0->{
+                otherContentAppbar(true)
+                fragment = MemberFragment()
+            }
+            1->{
+                otherContentAppbar(false)
+                fragment = ResultFragment()
+            }
+            2->{
+                otherContentAppbar(false)
+                fragment = FieldFragment()
+            }
+            3-> {
+
+            }
+        }
+        fragment.let{
+            supportFragmentManager.apply {
+                beginTransaction().replace(R.id.nav_host_fragment_content_main, fragment).addToBackStack(null).commit()
+            }
+        }
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         //fragment stack이 없어서 더이상 보여줄 화면이 없을경우 홈화면에서 보여지는 app bar을 사용한다.
         if(supportFragmentManager.backStackEntryCount==0) mainAppbar()
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.mainLoginBtn->{
+                startActivityForResult(Intent(this, LoginActivity::class.java), REQUEST)
+            }
+        }
+    }
+
+    companion object{
+        val REQUEST = 100
     }
 }

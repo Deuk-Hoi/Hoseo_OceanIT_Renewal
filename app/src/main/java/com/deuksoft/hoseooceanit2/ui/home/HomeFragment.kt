@@ -13,23 +13,27 @@ import com.deuksoft.hoseooceanit2.MainActivity
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _HomeBinding: FragmentHomeBinding? = null
 
-    private val HomeBinding get() = _HomeBinding!!
+    private val homeBinding get() = _HomeBinding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _HomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        return HomeBinding.root
+        homeBinding.memberBtn.setOnClickListener(this)
+        homeBinding.researchBtn.setOnClickListener(this)
+        homeBinding.fieldBtn.setOnClickListener(this)
+        homeBinding.waterBtn.setOnClickListener(this)
+
+        return homeBinding.root
     }
 
     override fun onResume() {
         super.onResume()
-
         (activity as MainActivity).mainAppbar()
     }
 
@@ -37,5 +41,22 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         Log.e("sdfds", "dsfds")
         _HomeBinding = null
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            homeBinding.memberBtn.id->{
+                (activity as MainActivity).changeFragment(0)
+            }
+            homeBinding.researchBtn.id->{
+                (activity as MainActivity).changeFragment(1)
+            }
+            homeBinding.fieldBtn.id->{
+                (activity as MainActivity).changeFragment(2)
+            }
+            homeBinding.waterBtn.id->{
+                (activity as MainActivity).changeFragment(3)
+            }
+        }
     }
 }
