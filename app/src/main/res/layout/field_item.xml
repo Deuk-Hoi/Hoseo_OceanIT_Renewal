@@ -21,6 +21,8 @@
             android:textSize="18sp"
             android:textColor="@color/customBlue"
             android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
             android:ems="15"
             tools:text="분산형 수중관측 제어망 개발"/>
 

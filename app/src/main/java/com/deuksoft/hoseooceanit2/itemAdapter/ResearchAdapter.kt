@@ -21,7 +21,10 @@ class ResearchAdapter(var context: Context, var resultList: List<ResultDTO>, var
         * 각 분류에 따라 중간에 들어가는 컨텐츠가 다르다 따라서 각 분류에 맞게 커스텀을 해주었다.
         * */
         fun bind(resultDTO: ResultDTO, context: Context){
-            resultTitle.text = resultDTO.title_ko
+            resultTitle.apply {
+                text = resultDTO.title_ko
+                isSelected = true
+            }
             if(resultDTO.classify_ko == "논문"){
                 resultContent.text = resultDTO.media_ko
                 classify.setTextColor(context.resources.getColor(R.color.resultThesis, null))
@@ -33,7 +36,10 @@ class ResearchAdapter(var context: Context, var resultList: List<ResultDTO>, var
                 classify.setTextColor(context.resources.getColor(R.color.resultPatent, null))
             }
             announeDate.text = resultDTO.date
-            writer.text = resultDTO.writer_ko
+            writer.apply {
+                text = resultDTO.writer_ko
+                isSelected = true
+            }
             classify.text = "[ ${resultDTO.classify_ko} ]"
         }
     }

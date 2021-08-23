@@ -1,7 +1,6 @@
 package com.deuksoft.hoseooceanit2.ui.result
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.deuksoft.hoseooceanit2.MainActivity
+import com.deuksoft.hoseooceanit2.ui.MainActivity
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentResultBinding
 import com.deuksoft.hoseooceanit2.itemAdapter.ResearchAdapter

@@ -35,6 +35,7 @@ class FieldAdapter (var context: Context, var FieldList: List<FieldDTO>, var ite
                 researchState.text = "연구 완료"
                 researchState.setTextColor(context.resources.getColor(R.color.customBlue, null))
             }
+            itemView.setOnClickListener{itemClick(fieldDTO)}
         }
     }
 

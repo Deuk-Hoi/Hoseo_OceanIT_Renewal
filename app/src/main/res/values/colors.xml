@@ -21,4 +21,10 @@
     <color name="resultPatent">#ff9900</color>
     <color name="resultThesis">#f44336</color>
     <color name="resultAnnounced">#7a15a2</color>
+
+    <color name="researchModalTitle">#4a148c</color>
+    <color name="researchModalContent">#653ab5</color>
+
+    <color name="light_gray">#e0e0e0</color>
+
 </resources>

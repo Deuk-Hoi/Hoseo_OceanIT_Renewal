@@ -71,7 +71,7 @@
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/home_center_card"
             android:elevation="10dp"
-            android:orientation="horizontal"
+            android:visibility="invisible"
             android:paddingVertical="10dp"
             app:layout_constraintVertical_bias="0.95"
             app:layout_constraintTop_toBottomOf="@id/mainSearch"
@@ -131,6 +131,48 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/nameCardGuideLine1"
                 app:layout_constraintTop_toBottomOf="@id/departement" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/centerCardNotLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/home_center_card"
+            android:elevation="10dp"
+            android:paddingVertical="10dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/home_guideLine1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainSearch"
+            app:layout_constraintVertical_bias="0.95">
+
+            <TextView
+                android:id="@+id/firstTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOSEO UNIVERSITY"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/secondTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ocean IT Research Institute"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/firstTitle" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -199,6 +241,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
                 android:ems="12"
                 android:maxLines="3"
                 android:text="수중환경에서 장시간,실시간 관측 및 제어를 위한 기지국 기반의 수중관측제어망 핵심기술"

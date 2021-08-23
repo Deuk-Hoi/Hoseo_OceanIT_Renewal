@@ -1,7 +1,6 @@
 package com.deuksoft.hoseooceanit2.ui.member
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.deuksoft.hoseooceanit2.MainActivity
+import com.deuksoft.hoseooceanit2.ui.MainActivity
 import com.deuksoft.hoseooceanit2.R
-import com.deuksoft.hoseooceanit2.databinding.AppBarMainBinding
 import com.deuksoft.hoseooceanit2.databinding.FragmentMemberBinding
 import com.deuksoft.hoseooceanit2.itemAdapter.MemberAdapter
 

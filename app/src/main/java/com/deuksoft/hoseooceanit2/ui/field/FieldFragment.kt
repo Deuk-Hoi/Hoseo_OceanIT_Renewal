@@ -1,7 +1,6 @@
 package com.deuksoft.hoseooceanit2.ui.field
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.deuksoft.hoseooceanit2.MainActivity
+import com.deuksoft.hoseooceanit2.DialogManager.FieldDialog
+import com.deuksoft.hoseooceanit2.ui.MainActivity
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentFieldBinding
 import com.deuksoft.hoseooceanit2.itemAdapter.FieldAdapter
@@ -72,7 +72,9 @@ class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun getField(classify: String){
         fieldViewModel.getField(classify).observe(viewLifecycleOwner){
-            var fieldAdapter = FieldAdapter(requireContext(), it){}
+            var fieldAdapter = FieldAdapter(requireContext(), it){
+                FieldDialog(requireContext(), it).show()
+            }
             val linearManager = LinearLayoutManager(requireContext())
             fieldBinding.fieldRecycler.adapter = fieldAdapter
             fieldBinding.fieldRecycler.layoutManager = linearManager
