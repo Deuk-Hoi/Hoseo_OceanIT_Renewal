@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -81,6 +83,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 otherContentAppbar(false)
                 fragment = FieldFragment()
             }
+            R.id.nav_pcver ->{
+                startActivity(Intent(this, PCWebActivity::class.java))
+            }
 
         }
         fragment.let{
@@ -113,10 +118,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     /*
-    * member의 경우 spinner가 필요없으므로 매개변수를 통해 제어를 한다.
+    * member의 경우 spinner, search conent 가 필요없으므로 매개변수를 통해 제어를 한다.
     * */
     fun otherContentAppbar(isMember:Boolean){
         findViewById<Spinner>(R.id.contentList).isVisible = !isMember
+        //findViewById<EditText>(R.id.searchEdit).isVisible = !isMember
+        findViewById<ImageView>(R.id.searchIcon).isVisible = !isMember
         binding.appBarMain.apply {
             mainToolbar.isVisible = false
             customToolbar.isVisible = true

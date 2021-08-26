@@ -1,10 +1,14 @@
 package com.deuksoft.hoseooceanit2.ui.result
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,18 +17,40 @@ import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentResultBinding
 import com.deuksoft.hoseooceanit2.itemAdapter.ResearchAdapter
 
-class ResultFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class ResultFragment : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private lateinit var resultViewModel: ResultViewModel
     private var _resultBinding: FragmentResultBinding? = null
     private val resultBinding get() = _resultBinding!!
-    lateinit var spinner: Spinner
+    var iconSW = false
+    private val spinner: Spinner by lazy {
+        requireActivity().findViewById(R.id.contentList)
+    }
+    private val searchIcon : ImageView by lazy {
+        requireActivity().findViewById(R.id.searchIcon)
+    }
+    private val searchEdit : EditText by lazy {
+        requireActivity().findViewById(R.id.searchEdit)
+    }
+    private var textWatcher = object :TextWatcher{
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
 
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            Log.e("a", s.toString())
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         resultViewModel = ViewModelProvider(this).get(ResultViewModel::class.java)
         _resultBinding = FragmentResultBinding.inflate(inflater, container, false)
         requireActivity().findViewById<TextView>(R.id.contentTitle).text = "연구 성과"
-        spinner = requireActivity().findViewById(R.id.contentList)!!
+        spinner
+        searchIcon
+        searchEdit.addTextChangedListener(textWatcher)
+
         settingSpinner()
 
         resultBinding.apply {
@@ -33,6 +59,7 @@ class ResultFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
 
         spinner.onItemSelectedListener = this
+        searchIcon.setOnClickListener(this)
         return resultBinding.root
     }
 
@@ -44,6 +71,11 @@ class ResultFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _resultBinding = null
+        searchEdit.apply {
+            text.clear()
+            searchEdit.removeTextChangedListener(textWatcher)
+            isVisible = false
+        }
     }
 
     /*
@@ -74,6 +106,15 @@ class ResultFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
         resultViewModel.getMessage().observe(viewLifecycleOwner){
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.searchIcon-> {
+                iconSW = !iconSW
+                searchEdit.isVisible = iconSW
+            }
         }
     }
 }

@@ -1,13 +1,17 @@
 package com.deuksoft.hoseooceanit2.ui.field
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.*
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,21 +21,45 @@ import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.databinding.FragmentFieldBinding
 import com.deuksoft.hoseooceanit2.itemAdapter.FieldAdapter
 
-class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
+class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListener{
     private lateinit var fieldViewModel: FieldViewModel
     private var _fieldBinding: FragmentFieldBinding? = null
     private val fieldBinding get() = _fieldBinding!!
-    lateinit var spinner: Spinner
+    var iconSW = false
+    private val spinner: Spinner by lazy {
+        requireActivity().findViewById(R.id.contentList)!!
+    }
+    private val searchIcon : ImageView by lazy {
+        requireActivity().findViewById(R.id.searchIcon)
+    }
+    private val searchEdit : EditText by lazy {
+        requireActivity().findViewById(R.id.searchEdit)
+    }
+
     var researchState = hashMapOf(
         "전체 과제" to "all",
         "진행 과제" to "progress",
         "완료 과제" to "finish"
     )
+    private var textWatcher = object : TextWatcher{
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            Log.e("b", s.toString())
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+        }
+    }
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         fieldViewModel = ViewModelProvider(this).get(FieldViewModel::class.java)
         _fieldBinding = FragmentFieldBinding.inflate(inflater, container, false)
         requireActivity().findViewById<TextView>(R.id.contentTitle).text = "연구 과제"
-        spinner = requireActivity().findViewById(R.id.contentList)!!
+        spinner
+        searchIcon
+        searchEdit.addTextChangedListener(textWatcher)
+
         settingSpinner()
 
         fieldBinding.apply {
@@ -40,6 +68,7 @@ class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
         }
 
         spinner.onItemSelectedListener = this
+        searchIcon.setOnClickListener(this)
         return fieldBinding.root
     }
 
@@ -51,6 +80,12 @@ class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _fieldBinding = null
+        searchEdit.apply {
+            text.clear()
+            searchEdit.removeTextChangedListener(textWatcher)
+            isVisible = false
+        }
+
     }
 
     /*
@@ -82,4 +117,15 @@ class FieldFragment: Fragment(), AdapterView.OnItemSelectedListener {
             fieldAdapter.notifyDataSetChanged()
         }
     }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.searchIcon-> {
+                Log.e("dsfds", "dfdsfsdsdfdsfds")
+                iconSW = !iconSW
+                searchEdit.isVisible = iconSW
+            }
+        }
+    }
+
 }

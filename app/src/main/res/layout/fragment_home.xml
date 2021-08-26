@@ -22,21 +22,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.44" />
+            app:layout_constraintGuide_percent="0.43" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/home_guideLine2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.66" />
+            app:layout_constraintGuide_percent="0.65" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/home_guideLine3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.91" />
+            app:layout_constraintGuide_percent="0.89" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/home_guideLine4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.39" />
 
         <ImageView
             android:id="@+id/mainImage"
@@ -75,7 +82,7 @@
             android:paddingVertical="10dp"
             app:layout_constraintVertical_bias="0.95"
             app:layout_constraintTop_toBottomOf="@id/mainSearch"
-            app:layout_constraintBottom_toTopOf="@id/home_guideLine1"
+            app:layout_constraintBottom_toTopOf="@id/home_guideLine4"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
 
@@ -144,7 +151,7 @@
             android:elevation="10dp"
             android:paddingVertical="10dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/home_guideLine1"
+            app:layout_constraintBottom_toTopOf="@id/home_guideLine4"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mainSearch"
