@@ -1,5 +1,7 @@
 package com.deuksoft.hoseooceanit2.ui.home
 
+import android.content.Intent
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import com.bumptech.glide.signature.ObjectKey
 import com.deuksoft.hoseooceanit2.R
 import com.deuksoft.hoseooceanit2.ui.MainActivity
 import com.deuksoft.hoseooceanit2.databinding.FragmentHomeBinding
+import com.deuksoft.hoseooceanit2.ui.water.WaterActivity
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -43,7 +46,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         .into(researchImg)
                 }
             }
-
+        }
+        var drawble = (requireContext().getDrawable(R.drawable.main_image_round)) as GradientDrawable
+        homeBinding.researchImg.apply {
+            background = drawble
+            clipToOutline = true
         }
 
         homeBinding.memberBtn.setOnClickListener(this)
@@ -77,7 +84,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 (activity as MainActivity).changeFragment(2)
             }
             homeBinding.waterBtn.id->{
-                (activity as MainActivity).changeFragment(3)
+                startActivity(Intent(requireContext(), WaterActivity::class.java))
             }
         }
     }

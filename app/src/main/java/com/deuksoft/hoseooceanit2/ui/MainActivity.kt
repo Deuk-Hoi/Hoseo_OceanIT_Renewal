@@ -30,6 +30,7 @@ import com.deuksoft.hoseooceanit2.ui.field.FieldFragment
 import com.deuksoft.hoseooceanit2.ui.home.HomeFragment
 import com.deuksoft.hoseooceanit2.ui.member.MemberFragment
 import com.deuksoft.hoseooceanit2.ui.result.ResultFragment
+import com.deuksoft.hoseooceanit2.ui.water.WaterActivity
 import org.w3c.dom.Text
 
 /*
@@ -85,6 +86,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_pcver ->{
                 startActivity(Intent(this, PCWebActivity::class.java))
+            }
+            R.id.nav_water ->{
+                startActivity(Intent(this, WaterActivity::class.java))
             }
 
         }
@@ -152,9 +156,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             2->{
                 otherContentAppbar(false)
                 fragment = FieldFragment()
-            }
-            3-> {
-
             }
         }
         fragment.let{
